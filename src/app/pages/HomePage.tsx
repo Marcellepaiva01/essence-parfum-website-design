@@ -461,7 +461,7 @@ export function HomePage() {
                   <ImageWithFallback
                     src={featured.imagem}
                     alt={`${featured.brand} ${featured.name}`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain object-center p-6 sm:p-8 lg:p-10"
                   />
                   {/* Annotation tags */}
                   <div className="absolute top-6 right-6 space-y-2">
