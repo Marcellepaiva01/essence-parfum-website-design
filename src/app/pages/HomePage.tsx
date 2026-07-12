@@ -152,19 +152,17 @@ export function HomePage() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-center lg:object-[58%_center]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/5 to-transparent lg:from-black/25 lg:via-transparent lg:to-transparent" />
         </div>
 
-        {/* Decorative gold accents */}
-        <div className="absolute bg-gradient-to-b from-transparent via-gold/40 to-transparent w-px h-24"
-          style={{ right: '38%', top: '30%' }} />
-        <div className="absolute bg-gradient-to-r from-transparent via-gold/30 to-transparent h-px w-24"
-          style={{ right: '44%', top: '45%' }} />
+        {/* Decorative gold accents — desktop: entre texto e vídeo */}
+        <div className="absolute hidden lg:block bg-gradient-to-b from-transparent via-gold/40 to-transparent w-px h-24 left-1/2 top-[32%] -translate-x-1/2" />
+        <div className="absolute hidden lg:block bg-gradient-to-r from-transparent via-gold/30 to-transparent h-px w-24 left-1/2 top-[46%] -translate-x-1/2" />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-16">
-          <div className="max-w-2xl">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-16 lg:grid lg:grid-cols-2 lg:items-center lg:gap-12">
+          <div className="max-w-2xl lg:max-w-none">
             {/* Eyebrow */}
             <div
               style={{ fontFamily: 'var(--font-mono)', letterSpacing: '0.3em', fontSize: '0.65rem' }}
@@ -185,7 +183,9 @@ export function HomePage() {
               className="text-cream mb-8"
             >
               Perfumes que não se encontram.{' '}
-              <em className="text-gold not-italic">Se reconhecem.</em>
+              <span className="lg:block">
+                <em className="text-gold not-italic">Se reconhecem.</em>
+              </span>
             </h1>
 
             {/* Paragraph */}
@@ -242,6 +242,9 @@ export function HomePage() {
               ))}
             </div>
           </div>
+
+          {/* Coluna direita vazia — o perfume fica visível ao centro no desktop */}
+          <div className="hidden lg:block" aria-hidden="true" />
         </div>
 
         {/* Scroll indicator */}
