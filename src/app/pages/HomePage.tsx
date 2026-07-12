@@ -7,6 +7,9 @@ import { FragranceDrawer } from '../components/FragranceDrawer';
 import type { Fragrance } from '../context/AppContext';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
+const HERO_VIDEO_URL =
+  'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/video/Perfume_bottle_spraying_liquid_202607111555.mp4';
+
 const BRANDS = [
   'Creed', 'Maison Francis Kurkdjian', 'Xerjoff', 'Roja Parfums',
   'Amouage', 'Tom Ford', 'Clive Christian', 'Parfums de Marly',
@@ -141,14 +144,17 @@ export function HomePage() {
     <div style={{ fontFamily: 'var(--font-sans)' }}>
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center bg-ink overflow-hidden">
-        {/* Background Image */}
+        {/* Background Video */}
         <div className="absolute inset-0">
-          <ImageWithFallback
-            src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=1400&q=80"
-            alt="Essence Parfum Hero"
-            className="w-full h-full object-cover opacity-40"
+          <video
+            src={HERO_VIDEO_URL}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-black/10 to-transparent" />
         </div>
 
         {/* Decorative gold accents */}
