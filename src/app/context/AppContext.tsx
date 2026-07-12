@@ -5,6 +5,12 @@ import {
   deleteFragrance as deleteFragranceFromDb,
   seedFragrances,
 } from '../../lib/fragrances';
+import {
+  signInAdmin,
+  signOutAdmin,
+  onAuthStateChange,
+  isAdminUser,
+} from '../../lib/auth';
 
 export interface Fragrance {
   id: string;
@@ -406,8 +412,8 @@ interface AppContextType {
   fragrances: Fragrance[];
   isLoading: boolean;
   isAdminLoggedIn: boolean;
-  login: (password: string) => boolean;
-  logout: () => void;
+  login: (email: string, password: string) => Promise<boolean>;
+  logout: () => Promise<void>;
   addFragrance: (f: Omit<Fragrance, 'id' | 'dataCadastro'>) => void;
   updateFragrance: (id: string, f: Partial<Fragrance>) => void;
   deleteFragrance: (id: string) => void;
@@ -420,18 +426,33 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | null>(null);
 
-const ADMIN_PASSWORD = 'essence2024';
 const STORAGE_KEY = 'essence_fragrances';
-const AUTH_KEY = 'essence_admin_auth';
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [fragrances, setFragrances] = useState<Fragrance[]>(INITIAL_FRAGRANCES);
   const [isLoading, setIsLoading] = useState(true);
   const hasSynced = useRef(false);
 
-  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
-    return localStorage.getItem(AUTH_KEY) === 'true';
-  });
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function checkAuth() {
+      const admin = await isAdminUser();
+      if (!cancelled) setIsAdminLoggedIn(admin);
+    }
+
+    checkAuth();
+    const unsubscribe = onAuthStateChange(() => {
+      checkAuth();
+    });
+
+    return () => {
+      cancelled = true;
+      unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -473,18 +494,18 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(fragrances));
   }, [fragrances]);
 
-  const login = useCallback((password: string) => {
-    if (password === ADMIN_PASSWORD) {
-      setIsAdminLoggedIn(true);
-      localStorage.setItem(AUTH_KEY, 'true');
-      return true;
-    }
-    return false;
+  const login = useCallback(async (email: string, password: string) => {
+    const { session, error } = await signInAdmin(email, password);
+    if (error || !session) return false;
+
+    const admin = await isAdminUser();
+    setIsAdminLoggedIn(admin);
+    return admin;
   }, []);
 
-  const logout = useCallback(() => {
+  const logout = useCallback(async () => {
+    await signOutAdmin();
     setIsAdminLoggedIn(false);
-    localStorage.removeItem(AUTH_KEY);
   }, []);
 
   const addFragrance = useCallback((f: Omit<Fragrance, 'id' | 'dataCadastro'>) => {

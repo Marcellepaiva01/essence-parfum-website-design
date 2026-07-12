@@ -27,8 +27,8 @@ export function AdminDashboardPage() {
     setTimeout(() => setToast(null), 3000);
   };
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     navigate('/admin');
   };
 

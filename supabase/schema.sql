@@ -1,5 +1,17 @@
--- Execute no SQL Editor do Supabase (projeto lqyevhohmyweqcuyqmjr)
+-- Essence Parfum — Schema completo
+-- Projeto: lqyevhohmyweqcuyqmjr
+-- Migration: supabase/migrations/20260712180000_initial_schema_rls_storage.sql
 
+-- Perfis de admin vinculados ao auth.users
+create table if not exists public.profiles (
+  id uuid primary key references auth.users(id) on delete cascade,
+  email text not null,
+  role text not null default 'admin' check (role in ('admin', 'viewer')),
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+-- Fragrâncias (catálogo)
 create table if not exists public.fragrances (
   id text primary key,
   brand text not null,
@@ -34,13 +46,11 @@ create table if not exists public.fragrances (
   updated_at timestamptz not null default now()
 );
 
-alter table public.fragrances enable row level security;
+-- RLS Fragrances:
+--   Público (anon): SELECT onde status = 'publicado'
+--   Admin (authenticated + profiles.role = 'admin'): CRUD completo
 
-create policy "Leitura pública de fragrâncias publicadas"
-  on public.fragrances for select
-  using (status = 'publicado' or true);
+-- Storage bucket: fragrance-images (público para leitura)
+-- Admin autenticado pode upload/update/delete
 
-create policy "Escrita pública (ajustar conforme auth)"
-  on public.fragrances for all
-  using (true)
-  with check (true);
+-- Admin padrão: teste@teste.com (criado via Supabase Auth)

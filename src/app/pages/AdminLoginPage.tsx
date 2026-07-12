@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { Eye, EyeOff, Lock } from 'lucide-react';
+import { Eye, EyeOff, Lock, Mail } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 
 export function AdminLoginPage() {
   const { login, isAdminLoggedIn } = useApp();
   const navigate = useNavigate();
+  const [email, setEmail] = useState('teste@teste.com');
   const [password, setPassword] = useState('');
   const [showPass, setShowPass] = useState(false);
   const [error, setError] = useState('');
@@ -17,21 +18,20 @@ export function AdminLoginPage() {
 
   if (isAdminLoggedIn) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
-    setTimeout(() => {
-      const ok = login(password);
-      setLoading(false);
-      if (ok) {
-        navigate('/admin/dashboard');
-      } else {
-        setError('Senha incorreta. Tente novamente.');
-        setPassword('');
-      }
-    }, 600);
+    const ok = await login(email.trim(), password);
+    setLoading(false);
+
+    if (ok) {
+      navigate('/admin/dashboard');
+    } else {
+      setError('E-mail ou senha incorretos. Tente novamente.');
+      setPassword('');
+    }
   };
 
   return (
@@ -40,7 +40,6 @@ export function AdminLoginPage() {
       className="min-h-screen bg-cream-dark flex items-center justify-center px-4"
     >
       <div className="w-full max-w-sm">
-        {/* Logo */}
         <div className="text-center mb-12">
           <div
             style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.2em', fontSize: '1.8rem' }}
@@ -80,7 +79,29 @@ export function AdminLoginPage() {
               style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.2em' }}
               className="block uppercase text-taupe mb-2"
             >
-              Senha de Acesso
+              E-mail
+            </label>
+            <div className="relative">
+              <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-taupe" />
+              <input
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="seu@email.com"
+                className="w-full pl-10 pr-4 py-3 bg-cream-dark border border-sand text-noir placeholder-taupe/50 focus:outline-none focus:border-gold/50 transition-colors text-sm"
+                style={{ fontFamily: 'var(--font-sans)' }}
+                required
+                autoComplete="email"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', letterSpacing: '0.2em' }}
+              className="block uppercase text-taupe mb-2"
+            >
+              Senha
             </label>
             <div className="relative">
               <input
@@ -91,6 +112,7 @@ export function AdminLoginPage() {
                 className="w-full px-4 py-3 bg-cream-dark border border-sand text-noir placeholder-taupe/50 focus:outline-none focus:border-gold/50 transition-colors text-sm pr-12"
                 style={{ fontFamily: 'var(--font-sans)' }}
                 required
+                autoComplete="current-password"
               />
               <button
                 type="button"
@@ -110,16 +132,12 @@ export function AdminLoginPage() {
 
           <button
             type="submit"
-            disabled={loading || !password}
+            disabled={loading || !email || !password}
             className="w-full py-3.5 bg-gold text-ink uppercase tracking-widest text-sm hover:bg-gold-dark transition-colors disabled:opacity-50"
             style={{ letterSpacing: '0.2em' }}
           >
             {loading ? 'Verificando...' : 'Entrar'}
           </button>
-
-          <p style={{ fontSize: '0.72rem' }} className="text-center text-taupe/60 mt-4">
-            Senha demo: <span className="font-mono text-taupe">essence2024</span>
-          </p>
         </form>
       </div>
     </div>

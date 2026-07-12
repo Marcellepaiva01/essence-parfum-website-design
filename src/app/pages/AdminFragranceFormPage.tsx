@@ -214,7 +214,7 @@ export function AdminFragranceFormPage() {
             </span>
           </div>
           <button
-            onClick={() => { logout(); navigate('/admin'); }}
+            onClick={async () => { await logout(); navigate('/admin'); }}
             className="flex items-center gap-2 text-cream/40 hover:text-cream/70 transition-colors"
           >
             <LogOut size={14} />
