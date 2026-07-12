@@ -8,7 +8,7 @@ import type { Fragrance } from '../context/AppContext';
 import { ImageWithFallback } from '../components/figma/ImageWithFallback';
 
 const HERO_VIDEO_URL =
-  'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/video/Perfume_bottle_spraying_liquid_202607111555.mp4';
+  'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/video/Girar_frasco_perfume_abre_fecha_202607121812.mp4';
 
 const BRANDS = [
   'Creed', 'Maison Francis Kurkdjian', 'Xerjoff', 'Roja Parfums',

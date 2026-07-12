@@ -40,7 +40,34 @@ async function seedViaSql() {
     destaques, historia, selos, status, imagem, data_cadastro
   ) values ${values}
   on conflict (id) do update set
-    brand = excluded.brand, name = excluded.name, status = excluded.status, updated_at = now();`;
+    brand = excluded.brand,
+    name = excluded.name,
+    line = excluded.line,
+    concentration = excluded.concentration,
+    volume = excluded.volume,
+    year = excluded.year,
+    country = excluded.country,
+    manufacturer = excluded.manufacturer,
+    importacao_oficial = excluded.importacao_oficial,
+    category = excluded.category,
+    familia_olfativa = excluded.familia_olfativa,
+    genero = excluded.genero,
+    fixacao = excluded.fixacao,
+    projecao = excluded.projecao,
+    preco = excluded.preco,
+    sob_consulta = excluded.sob_consulta,
+    disponibilidade = excluded.disponibilidade,
+    estoque = excluded.estoque,
+    notas_saida = excluded.notas_saida,
+    notas_coracao = excluded.notas_coracao,
+    notas_fundo = excluded.notas_fundo,
+    destaques = excluded.destaques,
+    historia = excluded.historia,
+    selos = excluded.selos,
+    status = excluded.status,
+    imagem = excluded.imagem,
+    data_cadastro = excluded.data_cadastro,
+    updated_at = now();`;
 
   const res = await fetch(`https://api.supabase.com/v1/projects/lqyevhohmyweqcuyqmjr/database/query`, {
     method: 'POST',

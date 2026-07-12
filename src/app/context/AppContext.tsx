@@ -74,7 +74,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'Aventus celebra a força, o sucesso e o poder de uma figura mítica. Inspirado nos triunfos e tragédias de Napoleão Bonaparte, este perfume combina frutas frescas com ingredientes de madeira defumada para criar uma fragrância verdadeiramente icônica e atemporal.',
     selos: ['exclusivo', 'importacao-oficial'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/1-creed-aventus.jpg',
     dataCadastro: '2024-01-15',
   },
   {
@@ -104,7 +104,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'Criado para a mítica cristaleria Baccarat, este extrait encapsula a luz e o fascínio do cristal. Uma fragrância que evoca luxo absoluto com suas facetas amadeiradas e florais únicas.',
     selos: ['exclusivo', 'ultimas-unidades'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1608721279136-cd41b752fa41?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/2-mfk-baccarat-rouge-540.jpg',
     dataCadastro: '2024-01-20',
   },
   {
@@ -134,7 +134,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'Naxos é uma jornada pela Sicília ensolarada, onde o mel dourado encontra o tabaco suave em uma composição gourmand irresistível. Uma fragrância que desperta memórias de deliciosas manhãs mediterrâneas.',
     selos: ['novo'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1622618991746-fe6004db3a47?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/3-xerjoff-naxos.jpg',
     dataCadastro: '2024-02-01',
   },
   {
@@ -164,7 +164,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'Elysium transporta quem o usa para um paraíso atemporal. A frescor cítrico de suas notas de topo abre caminho para um coração floral delicado, concluindo com uma base madeirosa e almiscarada de elegância suprema.',
     selos: ['importacao-oficial'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1615160460366-2c9a41771b51?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/4-roja-elysium.jpg',
     dataCadastro: '2024-02-10',
   },
   {
@@ -194,7 +194,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'Interlude Man narra a história de uma jornada épica entre mundos opostos. O incenso sagrado encontra o oud opulento em uma composição de complexidade inigualável, digna da herança perfumística do Oriente.',
     selos: ['exclusivo', 'ultimas-unidades'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1780811070739-faa3b575b669?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/5-amouage-interlude-man.jpg',
     dataCadastro: '2024-02-15',
   },
   {
@@ -224,7 +224,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'Oud Wood foi pioneiro ao introduzir o oud ao mundo ocidental da alta perfumaria. Sua combinação de oud raro com sândalos e especiarias criou uma nova linguagem do luxo olfativo, tornando-se instantaneamente um clássico moderno.',
     selos: ['importacao-oficial'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1770301410072-f6ef6dad65b2?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/6-tom-ford-oud-wood.jpg',
     dataCadastro: '2024-02-20',
   },
   {
@@ -254,7 +254,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'Inspirado no estilo de vida elegante do Château de Marly, Layton é uma fragrância que captura a essência do luxo francês do século XVIII. Sua abertura frutada e especiada evolui para um coração floral rico e uma base gourmand irresistível.',
     selos: ['novo'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1672848700906-2b8ca62639e4?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/7-pdm-layton.jpg',
     dataCadastro: '2024-03-01',
   },
   {
@@ -284,7 +284,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'Reconhecido pelo Guinness World Records como o perfume mais caro do mundo, o No.1 Imperial Majesty apresenta ingredientes raríssimos dos quatro cantos do globo, encapsulados em um frasco de cristal adornado com ouro 18k e diamante.',
     selos: ['exclusivo', 'edicao-limitada', 'ultimas-unidades'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1718466044521-d38654f3ba0a?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/8-clive-christian-no1.jpg',
     dataCadastro: '2024-03-05',
   },
   {
@@ -314,7 +314,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'African Leather é uma ode ao couro africano, nobre e selvagem. Uma fragrância que combina o calor das especiarias do Norte da África com a sofisticação de um couro refinado, criando uma composição verdadeiramente única e inesquecível.',
     selos: ['importacao-oficial'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1593487568720-92097fb460fb?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/9-memo-african-leather.jpg',
     dataCadastro: '2024-03-10',
   },
   {
@@ -344,7 +344,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'Good Girl Gone Bad captura a dualidade feminina com maestria. A frescor cítrico que mascara uma alma floral ardente e sensual. Uma fragrância que desafia e seduz em igual medida, perfeita para quem não teme se destacar.',
     selos: ['novo', 'importacao-oficial'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1615160460524-432433ba1b8f?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/10-kilian-good-girl-gone-bad.jpg',
     dataCadastro: '2024-03-15',
   },
   {
@@ -374,7 +374,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'Oud for Greatness é uma declaração de poder e conquista. O oud mais nobre se funde com especiarias e couro em uma composição que transcende o tempo e o espaço, criando uma assinatura olfativa verdadeiramente memorável.',
     selos: ['exclusivo'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1535683577427-740aaac4ec25?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/11-initio-oud-for-greatness.jpg',
     dataCadastro: '2024-03-20',
   },
   {
@@ -403,7 +403,7 @@ const INITIAL_FRAGRANCES: Fragrance[] = [
     historia: 'Chypre Palatin é a ressurreição dos grandes chypres do século XX, reimaginados com a maestria artesanal da perfumaria francesa contemporânea. Uma obra-prima que celebra a tradição e a inovação olfativa.',
     selos: ['edicao-limitada', 'ultimas-unidades'],
     status: 'publicado',
-    imagem: 'https://images.unsplash.com/photo-1514348871858-1d3c20902571?w=600&q=80',
+    imagem: 'https://lqyevhohmyweqcuyqmjr.supabase.co/storage/v1/object/public/fragrance-images/12-mdci-chypre-palatin.jpg',
     dataCadastro: '2024-03-25',
   },
 ];
