@@ -182,10 +182,12 @@ export function HomePage() {
               }}
               className="text-cream mb-8"
             >
-              Perfumes que não se encontram.{' '}
-              <span className="lg:block">
-                <em className="text-gold not-italic">Se reconhecem.</em>
+              <span className="lg:block lg:whitespace-nowrap">
+                Perfumes que não se encontram.
               </span>
+              <em className="text-gold not-italic lg:block lg:whitespace-nowrap">
+                Se reconhecem.
+              </em>
             </h1>
 
             {/* Paragraph */}
